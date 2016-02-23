@@ -3,37 +3,37 @@ using namespace std;
 int main()
 {
     int n , k1 , k2 , x , y , steps = 0;
-    deque<int> p1 , p2;
+    queue<int> p1 , p2;
     cin >> n;
     cin >> k1;
     for(int i = 0 ; i < k1 ; i++)
     {
         cin >> x;
-        p1.push_back(x);
+        p1.push(x);
     }
     cin >> k2;
     for(int i = 0 ; i < k2 ; i++)
     {
         cin >> x;
-        p2.push_back(x);
+        p2.push(x);
     }
     while(!p1.empty() && !p2.empty())
     {
         x = p1.front();
-        p1.pop_front();
+        p1.pop();
         y = p2.front();
-        p2.pop_front();
+        p2.pop();
         if(x > y)
         {
-            p1.push_back(y);
-            p1.push_back(x);
+            p1.push(y);
+            p1.push(x);
             k1++;k2--;
             //p2.pop();
         }
         else if(x < y)
         {
-            p2.push_back(x);
-            p2.push_back(y);
+            p2.push(x);
+            p2.push(y);
             k1--;k2++;
             //p1.pop();
         }
